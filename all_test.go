@@ -8,7 +8,6 @@ import (
 	"reflect"
 	"testing"
 	"time"
-	"github.com/heransoft/sync-http"
 )
 
 func TestClient_Send(t *testing.T) {
@@ -55,7 +54,7 @@ func TestClient_Send(t *testing.T) {
 	caseCount := int32(2000)
 	caseThreadExitedChan := make(chan int64, caseCount)
 	go func() {
-		c := sync_http.NewClient(
+		c := s_http.NewClient(
 			func(d interface{}) *http.Request {
 				urlStr := fmt.Sprintf("http://localhost:8089/k?p=%s", d)
 				r, e := http.NewRequest("GET", urlStr, nil)
